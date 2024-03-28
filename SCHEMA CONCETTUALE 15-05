@@ -1,0 +1,302 @@
+<Project name="null">
+<ConceptualSchema>
+<Entity name="DIPENDENTE" X="669" Y="333" >
+<Attribute name="Matricola" type="char" minCard="1" maxCard="1" length="8"/>
+<Attribute name="CF" type="char" minCard="1" maxCard="1" length="16"/>
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Cognome" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Data di nascita" type="date" minCard="1" maxCard="1"/>
+<Attribute name="Ruolo" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="ID0" attributes="Matricola"/>
+<Identifier name="ID1" attributes="CF"/>
+</Entity>
+<Entity name="VALUTAZIONE" X="327" Y="642" >
+<Attribute name="Data" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Commento" type="varchar" minCard="1" maxCard="1" length="80"/>
+<Identifier name="ID0" attributes="Data"/>
+</Entity>
+<Entity name="SEDE" X="1173" Y="452" >
+<Attribute name="Nazione" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Citta" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Indirizzo" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Numero di dipendenti" type="integer" minCard="1" maxCard="1"/>
+<Identifier name="ID0" attributes="Nazione, Citta, Indirizzo"/>
+</Entity>
+<Entity name="CORSO" X="609" Y="33" >
+<Attribute name="Codice" type="char" minCard="1" maxCard="1" length="12"/>
+<Attribute name="Data inizio" type="date" minCard="1" maxCard="1"/>
+<Attribute name="Titolo" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Obiettivo formativo" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Modalita" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Data fine" type="date" minCard="0" maxCard="1"/>
+<Attribute name="Tipo" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="ID0" attributes="Codice, Data inizio"/>
+<Identifier name="ID1" attributes="Titolo"/>
+</Entity>
+<Entity name="RESPONSABILE" X="796" Y="766" >
+<Attribute name="Tipo" type="varchar" minCard="1" maxCard="1" length="30"/>
+</Entity>
+<Entity name="COMPETENZA" X="125" Y="244" >
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="ID0" attributes="Nome"/>
+</Entity>
+<Entity name="PROMOZIONE" X="1102" Y="94" >
+<Attribute name="Data inizio ruolo" type="date" minCard="1" maxCard="1"/>
+<Attribute name="Ruolo promozione" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Data fine ruolo" type="date" minCard="0" maxCard="1"/>
+<Attribute name="Tipo" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="ID0" attributes="Data inizio ruolo"/>
+</Entity>
+<Relationship name="PARTECIPAZIONE" X="695" Y="231">
+</Relationship>
+<Relationship name="ACQUISIZIONE" X="885" Y="231">
+</Relationship>
+<Relationship name="IMPIEGO" X="1004" Y="430">
+</Relationship>
+<Relationship name="ATTRIBUZIONE" X="595" Y="556">
+</Relationship>
+<Relationship name="ESPERIENZA" X="335" Y="359">
+<Attribute name="Livello" type="integer" minCard="1" maxCard="1"/>
+<Attribute name="Data" type="date" minCard="1" maxCard="1"/>
+</Relationship>
+<Relationship name="SVILUPPO" X="336" Y="107">
+</Relationship>
+<Relationship name="GESTIONE" X="1078" Y="656">
+</Relationship>
+<Relationship name="COMITATO" X="429" Y="527">
+</Relationship>
+<Relationship name="TIPOLOGIA" X="992" Y="543">
+</Relationship>
+<Relationship name="GERARCHIA ATTUALE" X="686" Y="646">
+<Attribute name="Inizio" type="date" minCard="1" maxCard="1"/>
+</Relationship>
+<Relationship name="GERARCHIA PASSATA" X="804" Y="546">
+<Attribute name="Inizio" type="date" minCard="1" maxCard="1"/>
+<Attribute name="Fine" type="date" minCard="1" maxCard="1"/>
+</Relationship>
+<Entity name="DOCENTE" X="104" Y="48" >
+<Attribute name="Matricola" type="char" minCard="1" maxCard="1" length="12"/>
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Attribute name="Cognome" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="ID0" attributes="Matricola"/>
+</Entity>
+<Relationship name="DOCENZA" X="370" Y="-35">
+</Relationship>
+<Entity name="TITOLO DI STUDIO" X="381" Y="190" >
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="ID0" attributes="Nome"/>
+</Entity>
+<Entity name="QUALIFICA PROFESSIONALE" X="1219" Y="292" >
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="30"/>
+<Identifier name="ID0" attributes="Nome"/>
+</Entity>
+<Relationship name="ISTRUZIONE" X="488" Y="300">
+</Relationship>
+<Relationship name="ABILITAZIONE" X="1002" Y="307">
+</Relationship>
+<Entity name="OBIETTIVO FORMATIVO" X="158" Y="455" >
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="40"/>
+<Identifier name="ID0" attributes="Nome"/>
+</Entity>
+<Relationship name="PROPOSTA" X="168" Y="572">
+</Relationship>
+<RelLink name="RelLink0" X="456" Y="505" relationship="PARTECIPAZIONE" entity="CORSO" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="570" Y="554" relationship="PARTECIPAZIONE" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="624" Y="461" relationship="ACQUISIZIONE" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="955" Y="58" relationship="ACQUISIZIONE" entity="PROMOZIONE" minCard="1" maxCard="1" idName="ID0"/>
+<RelLink name="RelLink0" X="855" Y="413" relationship="IMPIEGO" entity="SEDE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="593" Y="462" relationship="IMPIEGO" entity="DIPENDENTE" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="728" Y="539" relationship="ATTRIBUZIONE" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="1319" Y="386" relationship="ATTRIBUZIONE" entity="VALUTAZIONE" minCard="1" maxCard="1" idName="ID0"/>
+<RelLink name="RelLink0" X="588" Y="614" relationship="ESPERIENZA" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="352" Y="469" relationship="SVILUPPO" entity="CORSO" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="307" Y="743" relationship="SVILUPPO" entity="COMPETENZA" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="965" Y="675" relationship="GESTIONE" entity="SEDE" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="939" Y="763" relationship="GESTIONE" entity="RESPONSABILE" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="627" Y="604" relationship="ESPERIENZA" entity="COMPETENZA" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="1409" Y="608" relationship="COMITATO" entity="VALUTAZIONE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="677" Y="472" relationship="COMITATO" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="842" Y="588" relationship="TIPOLOGIA" entity="DIPENDENTE" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="868" Y="704" relationship="TIPOLOGIA" entity="RESPONSABILE" minCard="1" maxCard="1" idName="ID0"/>
+<RelLink name="RelLink0" X="739" Y="278" relationship="GERARCHIA ATTUALE" entity="DIPENDENTE" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="739" Y="278" relationship="GERARCHIA PASSATA" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="903" Y="684" relationship="GERARCHIA ATTUALE" entity="RESPONSABILE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="809" Y="661" relationship="GERARCHIA PASSATA" entity="RESPONSABILE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="664" Y="214" relationship="DOCENZA" entity="CORSO" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="329" Y="108" relationship="DOCENZA" entity="DOCENTE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="692" Y="429" relationship="ISTRUZIONE" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="554" Y="355" relationship="ISTRUZIONE" entity="TITOLO DI STUDIO" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="1031" Y="158" relationship="ABILITAZIONE" entity="QUALIFICA PROFESSIONALE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="899" Y="443" relationship="ABILITAZIONE" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="510" Y="571" relationship="PROPOSTA" entity="VALUTAZIONE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="378" Y="571" relationship="PROPOSTA" entity="OBIETTIVO FORMATIVO" minCard="1" maxCard="N"/>
+<Note>
+{\rtf1\ansi
+{\fonttbl\f0\fnil Monospaced;\f1\fnil TimesRoman;}
+{\colortbl\red0\green0\blue0;\red51\green51\blue51;}
+
+\li0\ri0\fi0\f1\fs48\i0\b\ul0\cf1\par
+\fs36\par
+\par
+\par
+\par
+\li0\ri0\fi0\ul0\par
+}
+
+</Note>
+</ConceptualSchema>
+<RestructuredSchema>
+<Entity name="DIPENDENTE" X="462" Y="412" >
+<Attribute name="Matricola" type="char" minCard="1" maxCard="1" length="8" solved="false"/>
+<Attribute name="CF" type="char" minCard="1" maxCard="1" length="16" solved="false"/>
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Cognome" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Data di nascita" type="date" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="Ruolo" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="ID0" attributes="Matricola"/>
+<Identifier name="ID1" attributes="CF"/>
+<PrimaryIdentifier name="ID0"/>
+</Entity>
+
+<Entity name="VALUTAZIONE" X="44" Y="559" >
+<Attribute name="Data" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Commento" type="varchar" minCard="1" maxCard="1" length="80" solved="false"/>
+<Identifier name="ID0" attributes="Data"/>
+<PrimaryIdentifier name="ID0"/>
+</Entity>
+
+<Entity name="SEDE" X="963" Y="424" >
+<Attribute name="Nazione" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Citta" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Indirizzo" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Numero di dipendenti" type="integer" minCard="1" maxCard="1" solved="false"/>
+<Identifier name="ID0" attributes="Nazione, Citta, Indirizzo"/>
+<PrimaryIdentifier name="ID0"/>
+</Entity>
+
+<Entity name="CORSO" X="263" Y="83" >
+<Attribute name="Codice" type="char" minCard="1" maxCard="1" length="12" solved="false"/>
+<Attribute name="Data inizio" type="date" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="Titolo" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Obiettivo formativo" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Modalita" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Data fine" type="date" minCard="0" maxCard="1" solved="false"/>
+<Attribute name="Tipo" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="ID0" attributes="Codice, Data inizio"/>
+<Identifier name="ID1" attributes="Titolo"/>
+<PrimaryIdentifier name="ID0"/>
+</Entity>
+
+<Entity name="RESPONSABILE" X="504" Y="786" >
+<Attribute name="Tipo" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<PrimaryIdentifier name="ID0"/>
+</Entity>
+
+<Entity name="COMPETENZA" X="-7" Y="331" >
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="ID0" attributes="Nome"/>
+<PrimaryIdentifier name="ID0"/>
+</Entity>
+
+<Entity name="PROMOZIONE" X="563" Y="40" >
+<Attribute name="Data inizio ruolo" type="date" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="Ruolo promozione" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Data fine ruolo" type="date" minCard="0" maxCard="1" solved="false"/>
+<Attribute name="Tipo" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="ID0" attributes="Data inizio ruolo"/>
+<PrimaryIdentifier name="ID0"/>
+</Entity>
+
+<Entity name="DOCENTE" X="-172" Y="163" >
+<Attribute name="Matricola" type="char" minCard="1" maxCard="1" length="12" solved="false"/>
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Attribute name="Cognome" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="ID0" attributes="Matricola"/>
+<PrimaryIdentifier name="ID0"/>
+</Entity>
+
+<Entity name="TITOLO DI STUDIO" X="917" Y="333" >
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="ID0" attributes="Nome"/>
+<PrimaryIdentifier name="ID0"/>
+</Entity>
+
+<Entity name="QUALIFICA PROFESSIONALE" X="943" Y="207" >
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="30" solved="false"/>
+<Identifier name="ID0" attributes="Nome"/>
+<PrimaryIdentifier name="ID0"/>
+</Entity>
+
+<Entity name="OBIETTIVO FORMATIVO" X="-73" Y="434" >
+<Attribute name="Nome" type="varchar" minCard="1" maxCard="1" length="40" solved="false"/>
+<Identifier name="ID0" attributes="Nome"/>
+<PrimaryIdentifier name="ID0"/>
+</Entity>
+
+<Relationship name="PARTECIPAZIONE" X="395" Y="309">
+</Relationship>
+<Relationship name="ACQUISIZIONE" X="545" Y="181">
+</Relationship>
+<Relationship name="IMPIEGO" X="782" Y="420">
+</Relationship>
+<Relationship name="ATTRIBUZIONE" X="297" Y="611">
+</Relationship>
+<Relationship name="ESPERIENZA" X="243" Y="400">
+<Attribute name="Livello" type="integer" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="Data" type="date" minCard="1" maxCard="1" solved="false"/>
+</Relationship>
+<Relationship name="SVILUPPO" X="95" Y="234">
+</Relationship>
+<Relationship name="GESTIONE" X="953" Y="611">
+</Relationship>
+<Relationship name="COMITATO" X="279" Y="502">
+</Relationship>
+<Relationship name="TIPOLOGIA" X="441" Y="684">
+</Relationship>
+<Relationship name="GERARCHIA ATTUALE" X="545" Y="601">
+<Attribute name="Inizio" type="date" minCard="1" maxCard="1" solved="false"/>
+</Relationship>
+<Relationship name="GERARCHIA PASSATA" X="737" Y="531">
+<Attribute name="Inizio" type="date" minCard="1" maxCard="1" solved="false"/>
+<Attribute name="Fine" type="date" minCard="1" maxCard="1" solved="false"/>
+</Relationship>
+<Relationship name="DOCENZA" X="76" Y="93">
+</Relationship>
+<Relationship name="ISTRUZIONE" X="721" Y="330">
+</Relationship>
+<Relationship name="ABILITAZIONE" X="703" Y="234">
+</Relationship>
+<Relationship name="PROPOSTA" X="128" Y="473">
+</Relationship>
+<RelLink name="RelLink0" X="405" Y="262" relationship="PARTECIPAZIONE" entity="CORSO" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="498" Y="373" relationship="PARTECIPAZIONE" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="569" Y="309" relationship="ACQUISIZIONE" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="614" Y="149" relationship="ACQUISIZIONE" entity="PROMOZIONE" minCard="1" maxCard="1" idName="ID0"/>
+<RelLink name="RelLink0" X="897" Y="448" relationship="IMPIEGO" entity="SEDE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="711" Y="451" relationship="IMPIEGO" entity="DIPENDENTE" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="425" Y="568" relationship="ATTRIBUZIONE" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="237" Y="602" relationship="ATTRIBUZIONE" entity="VALUTAZIONE" minCard="1" maxCard="1" idName="ID0"/>
+<RelLink name="RelLink0" X="402" Y="450" relationship="ESPERIENZA" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="181" Y="377" relationship="ESPERIENZA" entity="COMPETENZA" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="209" Y="198" relationship="SVILUPPO" entity="CORSO" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="90" Y="295" relationship="SVILUPPO" entity="COMPETENZA" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="1027" Y="556" relationship="GESTIONE" entity="SEDE" minCard="1" maxCard="1"/>
+<RelLink name="RelLink0" X="781" Y="711" relationship="GESTIONE" entity="RESPONSABILE" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="238" Y="543" relationship="COMITATO" entity="VALUTAZIONE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="404" Y="492" relationship="COMITATO" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="513" Y="605" relationship="TIPOLOGIA" entity="DIPENDENTE" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="504" Y="748" relationship="TIPOLOGIA" entity="RESPONSABILE" minCard="1" maxCard="1" idName="ID0"/>
+<RelLink name="RelLink0" X="582" Y="563" relationship="GERARCHIA ATTUALE" entity="DIPENDENTE" minCard="0" maxCard="1"/>
+<RelLink name="RelLink0" X="582" Y="715" relationship="GERARCHIA ATTUALE" entity="RESPONSABILE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="687" Y="515" relationship="GERARCHIA PASSATA" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="671" Y="689" relationship="GERARCHIA PASSATA" entity="RESPONSABILE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="198" Y="127" relationship="DOCENZA" entity="CORSO" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="25" Y="141" relationship="DOCENZA" entity="DOCENTE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="679" Y="384" relationship="ISTRUZIONE" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="855" Y="344" relationship="ISTRUZIONE" entity="TITOLO DI STUDIO" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="865" Y="233" relationship="ABILITAZIONE" entity="QUALIFICA PROFESSIONALE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="670" Y="336" relationship="ABILITAZIONE" entity="DIPENDENTE" minCard="0" maxCard="N"/>
+<RelLink name="RelLink0" X="140" Y="529" relationship="PROPOSTA" entity="VALUTAZIONE" minCard="1" maxCard="N"/>
+<RelLink name="RelLink0" X="91" Y="466" relationship="PROPOSTA" entity="OBIETTIVO FORMATIVO" minCard="1" maxCard="N"/>
+</RestructuredSchema>
+</Project>
